@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.TrackBehaviorController">
+    <children>
+        <Label fx:id="blue_sects" layoutY="61.0" prefHeight="49.0" prefWidth="593.0" style="-fx-background-color: #1A2A4C;" text="Label" />
+        <Label fx:id="title_label" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="12.0" prefHeight="35.0" prefWidth="284.0" text="Track Inmate Behavior" textFill="#0f3057">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Label>
+        <TextField fx:id="title_field" layoutX="222.0" layoutY="71.0" prefHeight="25.0" prefWidth="140.0" />
+        <Button fx:id="enter_btn" layoutX="402.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnEnterClick" prefHeight="6.0" prefWidth="79.0" text="ENTER" />
+        <HBox alignment="CENTER" layoutX="112.0" layoutY="113.0" prefHeight="36.0" prefWidth="350.0" spacing="100.0">
+            <children>
+                <RadioButton fx:id="view_imates" mnemonicParsing="false" selected="true" text="View Imates" textFill="#0f3057">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="sent_man_group" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="search_inmates" mnemonicParsing="false" text="Search Inmate" textFill="#0f3057" toggleGroup="$sent_man_group" />
+            </children>
+        </HBox>
+        <TableView fx:id="tableview_inmates" layoutX="106.0" layoutY="144.0" prefHeight="221.0" prefWidth="379.0">
+            <columns>
+                <TableColumn fx:id="col_inmateId" prefWidth="70.00000381469727" text="Inmate ID" />
+                <TableColumn fx:id="col_inmateName" prefWidth="130.66664123535156" text="Inmate Name" />
+                <TableColumn fx:id="col_inmateAge" prefWidth="84.0" text="Age" />
+                <TableColumn fx:id="col_inmateGender" prefWidth="91.3333740234375" text="Gender" />
+            </columns>
+        </TableView>
+        <Label fx:id="toggle_text" alignment="CENTER_RIGHT" layoutX="38.0" layoutY="71.0" prefHeight="25.0" prefWidth="167.0" text="Enter Inmate ID:" textFill="WHITE">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Button fx:id="track_rtn_btn" alignment="CENTER" layoutX="252.0" layoutY="372.0" mnemonicParsing="false" onAction="#trackRtnClick" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #1A2A4C; -fx-font-weight: bold;" text="RETURN" textFill="WHITE" />
+        <TableView fx:id="behav_view" layoutX="27.0" layoutY="61.0" prefHeight="247.0" prefWidth="546.0">
+            <columns>
+                <TableColumn fx:id="col_behavior" prefWidth="75.0" text="Behavior" />
+                <TableColumn fx:id="col_incident" prefWidth="75.0" text="Incident" />
+                <TableColumn fx:id="col_description" prefWidth="190.66673278808594" text="Description" />
+                <TableColumn fx:id="col_date" prefWidth="78.0" text="Date" />
+                <TableColumn fx:id="col_reportingGuardId" prefWidth="123.99996948242188" text="Reporting Guard ID" />
+            </columns>
+        </TableView>
+<Label fx:id="blue_sects2" layoutY="317.0" prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #1A2A4C;" text="Label" />
+<Button fx:id="addnew_btn" layoutX="499.0" layoutY="329.0" mnemonicParsing="false" onAction="#addEnterClick" prefHeight="6.0" prefWidth="79.0" text="Add New" />
+<TextField fx:id="new_incident" layoutX="112.0" layoutY="329.0" prefHeight="25.0" prefWidth="89.0" promptText="Incident" />
+<TextField fx:id="new_desc" layoutX="213.0" layoutY="329.0" prefHeight="25.0" prefWidth="175.0" promptText="Description" />
+      <DatePicker fx:id="new_date" layoutX="398.0" layoutY="329.0" prefHeight="25.0" prefWidth="89.0" />
+      <ComboBox fx:id="new_behav" layoutX="14.0" layoutY="329.0" prefHeight="25.0" prefWidth="89.0" promptText="Behavior" />
+
+    </children>
+</AnchorPane>

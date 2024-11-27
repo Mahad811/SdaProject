@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.TransferInmate">
+
+    <!-- Title Label -->
+    <Label layoutX="127.0" layoutY="30.0" text="Transfer Inmate Between Prisons" textFill="#0F3057">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
+    <!-- Form Fields -->
+    <GridPane hgap="10.0" layoutX="50.0" layoutY="80.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="100" />
+        </columnConstraints>
+
+        <!-- Inmate ID -->
+        <Label text="Inmate ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="inmateIDField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+
+        <!-- Current Prison -->
+        <Label text="Current Prison:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="currentPrisonField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <!-- Destination Prison -->
+        <Label text="Destination Prison:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <ComboBox fx:id="destinationPrisonComboBox" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <!-- No options inside this ComboBox -->
+        </ComboBox>
+
+
+        <!-- Transfer Date -->
+        <Label text="Transfer Date:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <DatePicker fx:id="transferDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        <!-- Additional Notes -->
+        <Label text="Additional Notes:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextArea fx:id="notesField" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+
+    </GridPane>
+
+    <!-- Buttons -->
+    <Button fx:id="transferButton" layoutX="399.0" layoutY="147.0" onAction="#onTransferButtonClick" style="-fx-background-color: #0F3057; -fx-text-fill: white;" text="Transfer Inmate" />
+    <Button fx:id="cancelButton" layoutX="399.0" layoutY="187.0" onAction="#onCancelButtonClick" style="-fx-background-color: #FF5C5C; -fx-text-fill: white;" text="Cancel" />
+    <!-- Back Button -->
+    <Button fx:id="backButton" layoutX="545.0" layoutY="25.0" onAction="#onBackButtonClick" style="-fx-background-color: white; -fx-text-fill: #0F3057;" text="Back" />
+</AnchorPane>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.ReportsController">
+    <children>
+      <Label layoutX="-7.0" layoutY="66.0" prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: #1A2A4C;" />
+        <Label fx:id="title_label" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="14.0" prefHeight="35.0" prefWidth="284.0" text="Data Reports" textFill="#0f3057">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Label>
+        <Button alignment="CENTER" layoutX="252.0" layoutY="364.0" mnemonicParsing="false" onAction="#onReturnButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #1A2A4C; -fx-font-weight: bold;" text="RETURN" textFill="WHITE" />
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="66.0" prefHeight="63.0" prefWidth="612.0" spacing="20.0">
+         <children>
+            <RadioButton fx:id="general_opn" mnemonicParsing="false" selected="true" style="-fx-text-fill: white;" text="General" textFill="#1a2a4c">
+               <toggleGroup>
+                  <ToggleGroup fx:id="reports_toggle" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="inm_behav_opn" mnemonicParsing="false" style="-fx-text-fill: white;" text="Inmate Behavior" textFill="#1A2A4C" toggleGroup="$reports_toggle" />
+            <RadioButton fx:id="inm_atte_opn" mnemonicParsing="false" style="-fx-text-fill: white;" text="Inmate Attendence" textFill="#1A2A4C" toggleGroup="$reports_toggle" />
+            <RadioButton fx:id="guar_atten_opn" mnemonicParsing="false" prefWidth="163.0" style="-fx-text-fill: white;" text="Guard Attendence" textFill="#1A2A4C" toggleGroup="$reports_toggle" />
+         </children>
+      </HBox>
+      <GridPane fx:id="general_gid" alignment="CENTER" hgap="10.0" layoutX="126.0" layoutY="175.0" prefHeight="210.0" prefWidth="372.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="prison_num_text" text="Total Number of Prisons : " GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+            <Label fx:id="prison_num_val" alignment="CENTER" prefHeight="21.0" prefWidth="106.0" style="-fx-border-color: black; " GridPane.columnIndex="1" GridPane.halignment="LEFT" />
+            <Label fx:id="guard_num_text" text="Total Guard Population : " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="inmate_num_text" text="Total Inmate Population : " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="guard_num_val" alignment="CENTER" prefHeight="21.0" prefWidth="106.0" style="-fx-border-color: black; " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="inmate_num_val" alignment="CENTER" prefHeight="21.0" prefWidth="106.0" style="-fx-border-color: black; " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <ComboBox fx:id="selec_prisons" layoutX="222.0" layoutY="147.0" onAction="#onSelectedPrison" prefWidth="150.0" promptText="All Prisons" />
+      <TableView fx:id="table_inmate_behav" layoutX="148.0" layoutY="182.0" prefHeight="170.0" prefWidth="295.0">
+        <columns>
+          <TableColumn fx:id="colInmateId" editable="false" prefWidth="71.33331298828125" style="-fx-font-weight: bold;" text="Inmate ID" />
+          <TableColumn fx:id="colInmateName" editable="false" prefWidth="86.66676330566406" text="Inmate Name" />
+            <TableColumn fx:id="colPrisonId" editable="false" prefWidth="60.66668701171875" text="Prison ID" />
+            <TableColumn fx:id="colBehaviorRating" editable="false" prefWidth="73.33331298828125" text="Rating (5)" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table_inmate_behav1" layoutX="152.0" layoutY="183.0" prefHeight="170.0" prefWidth="295.0">
+         <columns>
+            <TableColumn fx:id="colGuardId" editable="false" prefWidth="71.33331298828125" style="-fx-font-weight: bold;" text="Guard ID" />
+            <TableColumn fx:id="colGuardName" editable="false" prefWidth="86.66676330566406" text="Guard Name" />
+            <TableColumn fx:id="colPrisonId1" editable="false" prefWidth="70.6666259765625" text="Prison ID" />
+            <TableColumn fx:id="colGuardDays" editable="false" prefWidth="64.0" text="Days" />
+         </columns>
+      </TableView>
+      <TableView fx:id="table_inmate_behav11" layoutX="152.0" layoutY="184.0" prefHeight="170.0" prefWidth="295.0">
+         <columns>
+            <TableColumn fx:id="colGuardId1" editable="false" prefWidth="71.33331298828125" style="-fx-font-weight: bold;" text="Inmate ID" />
+            <TableColumn fx:id="colGuardName1" editable="false" prefWidth="86.66676330566406" text="Inmate Name" />
+            <TableColumn fx:id="colPrisonId11" editable="false" prefWidth="70.6666259765625" text="Prison ID" />
+            <TableColumn fx:id="colGuardDays1" editable="false" prefWidth="64.0" text="Days" />
+         </columns>
+      </TableView>
+    </children>
+</AnchorPane>

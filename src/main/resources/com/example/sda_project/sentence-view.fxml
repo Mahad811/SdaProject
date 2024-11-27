@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.SentenceController">
+   <children>
+      <Label fx:id="blue_sects" layoutY="63.0" prefHeight="49.0" prefWidth="593.0" style="-fx-background-color: #1A2A4C;" text="Label" />
+      <Label fx:id="title_label" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="14.0" prefHeight="35.0" prefWidth="284.0" text="Sentencing Management" textFill="#0f3057">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="title_field" layoutX="222.0" layoutY="73.0" prefHeight="25.0" prefWidth="140.0" />
+      <Button fx:id="enter_btn" layoutX="402.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnEnterClick" prefHeight="6.0" prefWidth="79.0" text="ENTER" />
+      <HBox alignment="CENTER" layoutX="112.0" layoutY="121.0" prefHeight="36.0" prefWidth="350.0" spacing="100.0">
+         <children>
+            <RadioButton fx:id="recent_cases" mnemonicParsing="false" selected="true" text="Recent Court Cases" textFill="#0f3057">
+               <toggleGroup>
+                  <ToggleGroup fx:id="sent_man_group" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="search_inmates" mnemonicParsing="false" text="Search Inmate" textFill="#0f3057" toggleGroup="$sent_man_group" />
+         </children>
+      </HBox>
+      <TableView fx:id="tableview_cases" layoutX="42.0" layoutY="157.0" prefHeight="203.0" prefWidth="509.0">
+        <columns>
+          <TableColumn fx:id="col_caseId" prefWidth="70.00000381469727" text="Case ID" />
+          <TableColumn fx:id="col_caseName" prefWidth="130.66664123535156" text="Case Name" />
+           <TableColumn fx:id="col_caseDate" prefWidth="100.66668701171875" text="Case Date" />
+           <TableColumn fx:id="col_inmateId" prefWidth="74.66668701171875" text="Inamte ID" />
+           <TableColumn fx:id="col_inmateName" prefWidth="128.66665649414062" text="Inmate Name" />
+        </columns>
+      </TableView>
+      <Label fx:id="toggle_text" alignment="CENTER_RIGHT" layoutX="38.0" layoutY="73.0" prefHeight="25.0" prefWidth="167.0" text="Enter Inmate ID:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="252.0" layoutY="368.0" mnemonicParsing="false" onAction="#onReturnButton" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #1A2A4C; -fx-font-weight: bold;" text="RETURN" textFill="WHITE" />
+      <VBox fx:id="sent_detail_box" alignment="CENTER" fillWidth="false" layoutX="80.0" layoutY="85.0" prefHeight="258.0" prefWidth="429.0" spacing="5.0" style="-fx-background-color: #1A2A4C;">
+         <children>
+            <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Sentence Type" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox id="combo_sent_type" fx:id="sent_type" prefHeight="25.0" prefWidth="123.0" promptText="Select a type">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Imprisonment" />
+                        <String fx:value="Life Imprisonment" />
+                        <String fx:value="Death Penalty" />
+                    </FXCollections>
+                </items>
+             </ComboBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-weight: bold;" text="Sentence Date" textFill="WHITE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <DatePicker fx:id="sent_date" prefHeight="25.0" prefWidth="117.0" />
+            <CheckBox fx:id="parole" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" pickOnBounds="false" style="-fx-font-weight: bold;" text="Parole Eligibility" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </CheckBox>
+            <Button fx:id="enter_sent_btn" mnemonicParsing="false" onAction="#enterSentClick" text="Enter">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="back_sent_btn" mnemonicParsing="false" onAction="#backSentClick" text="Back">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

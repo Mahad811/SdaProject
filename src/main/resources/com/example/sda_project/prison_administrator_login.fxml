@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.PrisonAdminLoginController">
+
+    <children>
+        <!-- Title Label (Moved upward) -->
+        <Label layoutX="169.0" layoutY="17.0" text="Prison Administrator Login" textFill="#0F3057">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+
+        <!-- Form Container with blue border (Moved upward) -->
+        <VBox alignment="CENTER" layoutX="118.0" layoutY="53.0" prefHeight="330.0" prefWidth="373.0" spacing="20.0" style="-fx-background-color: #1A2A4C; -fx-padding: 20px; -fx-border-color: #0F3057; -fx-border-width: 2px;">
+            <!-- Name Input Field -->
+            <TextField fx:id="nameField" prefHeight="29.0" prefWidth="359.0" promptText="Enter your Name" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F3057; -fx-border-width: 2px;" />
+
+            <!-- Password Input Field -->
+            <PasswordField fx:id="passwordField" prefWidth="200.0" promptText="Enter Password" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F3057; -fx-border-width: 2px;" />
+
+            <!-- Next Button -->
+            <Button fx:id="nextButton" onAction="#onNextButtonClick" prefWidth="200.0" style="-fx-background-color: #0F3057; -fx-text-fill: white; -fx-font-size: 14px;" text="Next" />
+        </VBox>
+
+        <!-- Back Button (top-right corner) -->
+        <Button fx:id="backButton" onAction="#onBackButtonClick" style="-fx-background-color: white; -fx-text-fill: #0F3057; -fx-font-size: 12px;" text="Back" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+
+    </children>
+</AnchorPane>
